@@ -1,20 +1,55 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld title="Cat" msg="Hello Cat" link="www.cat.com" />
-    <HelloWorld title="Big Cat" msg="Hello Big Cat" link="www.bigcat.com" />
-    <HelloWorld title="Bigger Cat" msg="Hello Bigger Cat" link="www.biggercat.com" />
-    <HelloWorld title="The Bigest Cat" msg="Hello Biggest Cat" link="www.biggestcat.com" />
+    <cat-card 
+      v-for="item in ListOfCats" 
+      v-bind:key="item.id" 
+      :cat="item"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import catCard from './components/catCard'
 
 export default {
   name: 'App',
+  data: function(){
+    return {
+      ListOfCats: [
+        {
+          id: 1,
+          title: "Cats",
+          msg: "Hello Cats",
+          link: "www.cat.com",
+          visible: true
+        },
+        {
+          id: 2,
+          title: "Big Cats",
+          msg: "Hello Big Cats",
+          link: "www.bigcat.com",
+          visible: true
+        },
+        {
+          id: 3,
+          title: "Bigger Cats",
+          msg: "Hello Bigger Cats",
+          link: "www.biggercat.com",
+          visible: false
+        },
+        {
+          id: 4,
+          title: "The Bigest Cats",
+          msg: "Hello Biggest Cats",
+          link: "www.biggestcat.com",
+          visible: true
+        },
+      ]  
+    }
+  },
   components: {
-    HelloWorld
+    catCard
   }
 }
 </script>

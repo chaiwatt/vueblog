@@ -1,18 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{title}}</h1>
-    <p>{{msg}}</p>
-    <p>{{link}}</p>
+  <div>
+    <hr>
+    <div v-if="cat.visible == true" >
+      <h2>{{cat.id}}</h2>
+        <h1>{{cat.title}}</h1>
+        <p>{{cat.msg}}</p>
+        <p>{{cat.link}}</p>
+    </div>
+    <div v-else>
+       <strong>{{cat.id}} This '{{cat.title}}' is not available.</strong> 
+    </div>
   </div>
+
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'catCard',
   props: {
-    title: String,
-    msg: String,
-    link: String,
+    cat: Object
   }
 }
 </script>
