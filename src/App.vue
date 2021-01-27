@@ -3,6 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld title="Cat" msg="Hello Cat" link="www.cat.com" />
     <HelloWorld title="Big Cat" msg="Hello Big Cat" link="www.bigcat.com" />
+    <HelloWorld title="Bigger Cat" msg="Hello Bigger Cat" link="www.biggercat.com" />
+    <HelloWorld title="The Bigest Cat" msg="Hello Biggest Cat" link="www.biggestcat.com" />
   </div>
 </template>
 
