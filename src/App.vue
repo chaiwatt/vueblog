@@ -8,13 +8,13 @@
       <div><span>Message: </span><input type="text" v-model="newCat.msg"></div>
       <div><span>Link: </span><input type="text" v-model="newCat.link"></div>
       <div><span>Image URL: </span><input type="text" v-model="newCat.image"></div>
-      
+      <br>
+      <button type="button" @click="addCat()">Add Cat</button>
+      <button type="button" @click="resetCat()">Reset</button>
       <cat-card
         :cat="newCat"
       />
     </div>
-
-    
     <cat-card 
       v-for="(item, index) in ListOfCats" 
       v-bind:key="index" 
@@ -30,12 +30,13 @@ export default {
   name: 'App',
   data: function(){
     return {
-      newCat:{
-          title: "Hello Cats",
-          msg: "Hello Cats",
-          link: "www.cat.com",
+      newCat:
+      {
+          title: "",
+          msg: "",
+          link: "",
           visible: true,
-          image: "https://i.imgur.com/Ss75Vfa.jpg"
+          image: ""
       },
       ListOfCats: [
         {
@@ -71,6 +72,23 @@ export default {
   },
   components: {
     catCard
+  },
+  methods:{
+    addCat: function(){
+      this.ListOfCats.unshift(this.newCat).then(
+        this.resetCat()
+      );
+    },
+    resetCat: function(){
+      this.newCat =
+        {
+          title: "",
+          msg: "",
+          link: "",
+          visible: true,
+          image: ""
+        }
+    }
   }
 }
 </script>
